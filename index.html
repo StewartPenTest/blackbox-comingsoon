@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackBox Auditor | Cloud Audits Made Human</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1113;
+            --card: #1a1d21;
+            --text: #ffffff;
+            --accent: #3b82f6;
+            --muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .form-container {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #2d3139;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type="email"] {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            font-size: 1rem;
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">BLACKBOX AUDITOR</div>
+        
+        <span class="badge">Coming Soon: AWS Audit Module</span>
+        <h1>Stop relying on the "Engineering Filter."</h1>
+        <p>
+            Verify cloud security settings with <span class="highlight">independent evidence</span>. 
+            BlackBox Auditor translates complex AWS data into plain-English context for GRC professionals and IT Auditors.
+        </p>
+
+        <div class="form-container">
+            <p style="font-size: 1rem; margin-bottom: 1rem;">Be the first to get access and a sample evidence report.</p>
+            <form action="#" method="POST">
+                <input type="email" placeholder="Enter your work email" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 BlackBox Auditor. Built for SOC 2, PCI DSS 4.0, and ISO 27001.
+        </div>
+    </div>
+
+</body>
+</html>
