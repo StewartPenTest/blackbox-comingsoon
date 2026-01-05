@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackBox Auditor | Cloud Audits Made Human</title>
+    
+    <title>BlackBox Auditor | Expert AWS Audit Evidence & Cloud GRC Tool</title>
+    <meta name="description" content="Save time and ensure independence. BlackBox Auditor simplifies complex AWS data into auditor-focused evidence for SOC 2, PCI DSS 4.0, and ISO 27001.">
+    <meta name="keywords" content="AWS Audit, Cloud GRC, IT Security Audit Tool, SOC 2 Evidence, PCI DSS 4.0 AWS, Independent Audit Verification">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blackboxauditor.com/">
+    <meta property="og:title" content="BlackBox Auditor | Expert AWS Audit Evidence">
+    <meta property="og:description" content="Simplify complicated cloud information. Get auditor-focused data straight from the source and save hundreds of hours on your next engagement.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg: #0f1113;
@@ -26,66 +37,80 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            text-align: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             padding: 3rem 2rem;
         }
 
-        .logo-img {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 2.5rem;
-            border-radius: 4px;
+        /* Repositioned Logo & Heading */
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent);
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
+        .logo-img {
+            max-width: 80px; /* Scaled down to sit next to text */
+            height: auto;
+            border-radius: 8px;
         }
 
         h1 {
-            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin: 0;
             letter-spacing: -0.03em;
+            text-align: left;
         }
 
-        p {
+        .tagline {
             font-size: 1.25rem;
             color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
-        .highlight {
-            color: var(--text);
-            font-weight: 600;
+        /* Value Propositions Grid */
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 4rem;
+            text-align: left;
         }
 
-        .cta-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
+        .usp-card {
             background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #2d3139;
+        }
+
+        .usp-card h3 {
+            color: var(--accent);
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .usp-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(145deg, #1a1d21, #111418);
             padding: 2.5rem;
             border-radius: 16px;
-            border: 1px solid #2d3139;
+            border: 1px solid var(--accent);
+            text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
@@ -100,57 +125,67 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s;
+            margin-top: 1rem;
         }
 
         .linkedin-button:hover {
-            background-color: #005d8f;
             transform: translateY(-2px);
-        }
-
-        .linkedin-icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
         }
 
         .footer {
             margin-top: 4rem;
             font-size: 0.875rem;
             color: var(--muted);
+            text-align: center;
             border-top: 1px solid #2d3139;
             padding-top: 2rem;
-            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .header-flex { text-align: center; }
+            h1 { text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="BlackBox Auditor Logo" class="logo-img">
-        
-        <br>
-        <span class="badge">Coming Soon: AWS Audit Module</span>
-        
-        <h1>Stop relying on the "Engineering Filter."</h1>
-        
-        <p>
-            Verify cloud security settings with <span class="highlight">independent evidence</span>. 
-            BlackBox Auditor translates complex AWS data into plain-English context for GRC professionals and IT Auditors.
-        </p>
+        <header class="header-flex">
+            <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="BlackBox Auditor Logo" class="logo-img">
+            <h1>BlackBox Auditor</h1>
+        </header>
 
-        <div class="cta-container">
-            <span style="font-weight: 600; color: var(--text);">Stay updated on our progress:</span>
+        <p class="tagline">Simplifying cloud complexity for the modern IT auditor.</p>
+
+        <div class="usp-grid">
+            <div class="usp-card">
+                <h3>1. Save Time</h3>
+                <p>Automate the collection of technical evidence. Spend your hours analyzing risk, not fighting with the AWS Console.</p>
+            </div>
+            <div class="usp-card">
+                <h3>2. Instant ROI</h3>
+                <p>Time savings alone will pay for the tool on your very first engagement. Realize immediate value with every scan.</p>
+            </div>
+            <div class="usp-card">
+                <h3>3. Expert Context</h3>
+                <p>Get auditor-focused data straight from the source. We translate complex cloud telemetry into actionable audit evidence.</p>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2 style="margin-top: 0;">Ready to Audit Faster?</h2>
+            <p style="font-size: 1.1rem;">Connect with us on LinkedIn to receive early access and a sample evidence report.</p>
             
             <a href="https://linkedin.com/company/blackboxauditor" target="_blank" class="linkedin-button">
-                <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 Connect on LinkedIn
             </a>
         </div>
 
-        <div class="footer">
-            &copy; 2026 BlackBox Auditor. Built for SOC 2, PCI DSS 4.0, and ISO 27001 professionals.
-        </div>
+        <footer class="footer">
+            &copy; 2026 BlackBox Auditor | Built for SOC 2, PCI DSS 4.0, and ISO 27001 Professionals.
+        </footer>
     </div>
 
 </body>
