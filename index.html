@@ -48,6 +48,7 @@
 
         body {
             background-color: var(--bg);
+            background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08), transparent 50%);
             color: var(--text);
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -58,91 +59,145 @@
         }
 
         .container {
-            max-width: 900px;
-            padding: 3rem 2rem;
+            max-width: 1000px;
+            padding: 4rem 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
+        /* Header Layout: Logo left of Title */
         .header-flex {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 2rem;
+            gap: 24px;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
         .logo-img {
-            max-width: 80px;
+            max-width: 70px;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin: 0;
-            letter-spacing: -0.03em;
-            text-align: left;
+            letter-spacing: -0.04em;
         }
 
         .tagline {
             font-size: 1.25rem;
             color: var(--muted);
-            margin-bottom: 3rem;
+            margin: 1.5rem 0 4rem 0;
             text-align: center;
         }
 
+        /* Compliance Framework Badges - HITRUST Style */
+        .framework-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+        }
+
+        .badge {
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            border: 1px solid;
+            transition: transform 0.2s;
+        }
+
+        .badge:hover { transform: translateY(-2px); }
+
+        .badge-soc2 { border-color: #8b5cf6; color: #c4b5fd; background: rgba(139, 92, 246, 0.1); }
+        .badge-pci { border-color: #f97316; color: #fdba74; background: rgba(249, 115, 22, 0.1); }
+        .badge-iso { border-color: #10b981; color: #a7f3d0; background: rgba(16, 185, 129, 0.1); }
+        .badge-hitrust { border-color: #06b6d4; color: #a5f3fc; background: rgba(6, 182, 212, 0.1); }
+
         .intro-section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             text-align: center;
         }
 
         .intro-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .intro-section p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--muted);
             line-height: 1.7;
-            max-width: 800px;
+            max-width: 850px;
             margin: 1.5rem auto;
         }
 
+        /* USP Grid with Bigger Icons */
         .usp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 4rem;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 4rem 0 6rem 0;
         }
 
         .usp-card {
             background: var(--card);
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 3rem 2rem;
+            border-radius: 24px;
             border: 1px solid #2d3139;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .usp-card:hover { border-color: var(--accent); }
+
+        .icon-container {
+            background: rgba(59, 130, 246, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .usp-icon {
+            width: 40px;
+            height: 40px;
+            stroke: var(--accent);
+            stroke-width: 1.5;
+            fill: none;
         }
 
         .usp-card h3 {
-            color: var(--accent);
-            margin-top: 0;
-            font-size: 1.1rem;
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
         }
 
         .usp-card p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--muted);
-            line-height: 1.5;
-            margin-bottom: 0;
+            line-height: 1.6;
         }
 
         .cta-box {
             background: linear-gradient(145deg, #1a1d21, #111418);
-            padding: 2.5rem;
-            border-radius: 16px;
+            padding: 4rem 2rem;
+            border-radius: 24px;
             border: 1px solid var(--accent);
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -155,62 +210,78 @@
             background-color: var(--linkedin);
             color: white;
             text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 1.1rem;
             transition: transform 0.2s;
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
-        .linkedin-button:hover {
-            transform: translateY(-2px);
-        }
+        .linkedin-button:hover { transform: translateY(-2px); }
 
         .footer {
-            margin-top: 4rem;
-            font-size: 0.875rem;
+            margin-top: 6rem;
+            font-size: 0.9rem;
             color: var(--muted);
             text-align: center;
             border-top: 1px solid #2d3139;
-            padding-top: 2rem;
+            padding: 3rem 0;
+            width: 100%;
         }
 
         @media (max-width: 600px) {
-            .header-flex { text-align: center; }
-            h1 { text-align: center; }
+            .header-flex { flex-direction: column; text-align: center; gap: 10px; }
+            .usp-card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header class="header-flex">
-            <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="BlackBox Auditor AWS Security Audit Tool Logo" class="logo-img">
-            <h1>BlackBox Auditor</h1>
+        <header>
+            <div class="header-flex">
+                <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="BlackBox Auditor AWS Security Audit Tool Logo" class="logo-img">
+                <h1>BlackBox Auditor</h1>
+            </div>
+            <p class="tagline">Coming soon: The easiest way to perform AWS security audits and collect compliance evidence.</p>
         </header>
 
-        <p class="tagline">Coming soon: The easiest way to perform AWS security audits and collect compliance evidence.</p>
+        <div class="framework-section">
+            <span class="badge badge-soc2">SOC 2 TYPE II</span>
+            <span class="badge badge-pci">PCI DSS 4.0</span>
+            <span class="badge badge-iso">ISO 27001</span>
+            <span class="badge badge-hitrust">HITRUST</span>
+        </div>
 
         <section class="intro-section">
             <h2>Built for AWS Security Audits & Compliance</h2>
-            <p>BlackBox Auditor is a powerful AWS compliance audit tool designed specifically for external IT auditors and internal GRC professionals. It automates evidence collection and organizes complex AWS data into auditor-ready formats — stop relying on AWS IAM audit checklists or security audit report templates.  Our tool provides clear, easy to understand evidence for SOC 2 Type II, PCI DSS 4.0, ISO 27001, and HITRUST Assessments.</p>
+            <p>BlackBox Auditor is a powerful AWS compliance audit tool designed specifically for external IT auditors and internal GRC professionals. It automates evidence collection and organizes complex AWS data into auditor-ready formats — stop relying on AWS IAM audit checklists or security audit report templates. Our tool provides clear, easy to understand evidence for SOC 2 Type II, PCI DSS 4.0, ISO 27001, and HITRUST Assessments.</p>
             
             <p>Stop spending hours navigating the AWS console or trying to piece together configuration settings provided by cloud engineers. Get structured, independent evidence with expert context and AWS security best practices for compliance built right in.</p>
         </section>
 
         <section>
-            <h2 style="text-align: center; margin-bottom: 2rem;">Why Auditors Choose BlackBox Auditor</h2>
+            <h2 style="text-align: center; font-size: 2rem;">Why Auditors Choose BlackBox Auditor</h2>
             <div class="usp-grid">
                 <div class="usp-card">
+                    <div class="icon-container">
+                        <svg class="usp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
                     <h3>Automated Evidence Collection</h3>
                     <p>Instantly gather SOC 2 AWS evidence, PCI AWS evidence, ISO27001 AWS evidence, and HITRUST AWS evidence collection — all organized for your audit workflow.</p>
                 </div>
                 <div class="usp-card">
+                    <div class="icon-container">
+                        <svg class="usp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
                     <h3>Auditor-Focused Output</h3>
-                    <p>Replaces AWS security audit report templates, IAM audit checklists, and PCI DSS AWS audit checklists.  Reports are updated with 2026 requirements and new AWS features.</p>
+                    <p>Replaces AWS security audit report templates, IAM audit checklists, and PCI DSS AWS audit checklists. Reports are updated with 2026 requirements and new AWS features.</p>
                 </div>
                 <div class="usp-card">
+                    <div class="icon-container">
+                        <svg class="usp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
                     <h3>Independence & Efficiency</h3>
                     <p>Perform AWS security audits for either external compliance assessment or internal security reviews with full independence while saving hours per engagement. Our tool has instant ROI.</p>
                 </div>
@@ -219,7 +290,7 @@
 
         <div class="cta-box">
             <h2>Launching Soon – Get Early Access</h2>
-            <p style="font-size: 1.1rem;">Connect on LinkedIn for priority access, a free sample AWS audit evidence report, and updates on SOC 2, PCI DSS, and ISO 27001 features.</p>
+            <p style="font-size: 1.1rem; color: var(--muted);">Connect on LinkedIn for priority access, a free sample AWS audit evidence report, and updates on SOC 2, PCI DSS, and ISO 27001 features.</p>
             
             <a href="https://linkedin.com/company/blackboxauditor" target="_blank" class="linkedin-button">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -234,5 +305,6 @@
 
 </body>
 </html>
+
 
 
