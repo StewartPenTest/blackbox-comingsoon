@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog | Blackbox Auditor</title>
+    <meta name="description" content="Insights on AWS auditing, compliance frameworks, and GRC best practices. Practical guidance for auditors working with cloud environments.">
+    <meta name="keywords" content="AWS audit blog, cloud compliance, GRC best practices, SOC 2 AWS, IAM audit guidance">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blackboxauditor.com/blog/">
+    <meta property="og:title" content="Blog | Blackbox Auditor">
+    <meta property="og:description" content="Insights on AWS auditing, compliance frameworks, and GRC best practices.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+
+    <link rel="canonical" href="https://blackboxauditor.com/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                <span>Blackbox Auditor</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Product
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role & Trust</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary & Scope</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
+                        <li class="dropdown-item coming-soon"><a href="#">AWS Inventory / Audit Scope</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../compare/manual-vs-blackbox-auditor.html" class="nav-link">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources/sample-reports.html" class="nav-link">Sample Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../company/contact.html" class="nav-link nav-cta">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Blog</span>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container container-narrow">
+                <h1>Blog</h1>
+                <p class="hero-subtitle">
+                    Practical insights on AWS auditing, compliance frameworks, and evidence collection for auditors and GRC professionals.
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog Posts List -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card">
+                        <a href="aws-iam-best-practices-2026.html" class="blog-card-link">
+                            <div class="blog-card-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">IAM</span>
+                                    <span class="blog-date">Coming Soon</span>
+                                </div>
+                                <h2 class="blog-title">AWS IAM Best Practices in 2026: A Comprehensive Guide for Auditors and GRC Professionals</h2>
+                                <p class="blog-excerpt">
+                                    A detailed look at current IAM best practices, what auditors should look for, and how to evaluate IAM configurations against modern compliance frameworks.
+                                </p>
+                                <span class="blog-read-more">
+                                    Read more
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Placeholder for future posts -->
+                    <!--
+                    <article class="blog-card">
+                        <a href="blog-post-slug.html" class="blog-card-link">
+                            <div class="blog-card-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">Category</span>
+                                    <span class="blog-date">Month DD, YYYY</span>
+                                </div>
+                                <h2 class="blog-title">Blog Post Title</h2>
+                                <p class="blog-excerpt">
+                                    Brief excerpt or summary of the blog post content...
+                                </p>
+                                <span class="blog-read-more">
+                                    Read more
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </article>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>See Audit Evidence in Action</h2>
+                    <p>Want to see how these best practices translate to actual audit evidence?</p>
+                    <div class="btn-group">
+                        <a href="../resources/sample-reports.html" class="btn btn-primary">View Sample Reports</a>
+                        <a href="../company/contact.html" class="btn btn-secondary">Get a Free IAM Scan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo">
+                        <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                        <span>Blackbox Auditor</span>
+                    </a>
+                    <p>Audit-ready AWS evidence for auditors and GRC teams. Not a Cloud Security Posture Management Tool. Built for auditors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
+                        <li><a href="../product/aws-sso-federated-access-audit.html">SSO & Federated Access</a></li>
+                        <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
+                        <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
+                        <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
+                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../company/contact.html">Contact</a></li>
+                        <li><a href="../company/security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Blackbox Auditor. All rights reserved.</span>
+                <span class="footer-tagline">Not a Cloud Security Posture Management Tool. Built for auditors.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
