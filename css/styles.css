@@ -278,18 +278,18 @@ main {
 }
 
 .section {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
 }
 
 .section-lg {
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 
 /* ============================================
    Hero Section
    ============================================ */
 .hero {
-    padding: 6rem 0 4rem;
+    padding: 4rem 0 2.5rem;
     text-align: center;
 }
 
@@ -711,7 +711,7 @@ main {
 .divider {
     height: 1px;
     background: var(--border);
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 /* ============================================
@@ -901,11 +901,11 @@ main {
 
     /* Layout adjustments */
     .hero {
-        padding: 4rem 0 3rem;
+        padding: 3rem 0 2rem;
     }
 
     .section {
-        padding: 3rem 0;
+        padding: 2rem 0;
     }
 
     .card-grid {
