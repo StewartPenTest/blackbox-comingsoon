@@ -1,0 +1,32 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (local workspace)
+.vscode/
+
+# Dependency folders
+node_modules/
+vendor/
+venv/
+.venv
+.venv/
+
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Temporary or Log Files
+*.log
+*.tmp
+*.bak
+/tmp
+tmp
+old/
+
+#claude files
+.claude/
+
+output/
+data-to-use/
+
