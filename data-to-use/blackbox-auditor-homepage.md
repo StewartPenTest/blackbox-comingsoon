@@ -88,7 +88,7 @@ Supports scoping, sampling, and completeness assertions.
 
 ---
 
-## Not a CSPM. Not a Security Dashboard.
+## Not a Cloud Security Posture Management Tool. Not a Security Dashboard.
 
 Blackbox Auditor does not score risk, monitor threats, or replace security tooling.
 
