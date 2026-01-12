@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AWS SOC 2 Requirements 2026: Turning Customer Responsibility Into Audit-Ready Evidence | Blackbox Auditor</title>
+    <meta name="description" content="AWS released new SOC 2 guidance in 2025. Learn how auditors should evaluate customer-owned SOC 2 responsibilities in AWS with structured, point-in-time evidence for IAM, logging, and configuration controls.">
+    <meta name="keywords" content="AWS SOC 2 2026, SOC 2 audit evidence, AWS customer responsibility, SOC 2 Trust Services Criteria, AWS IAM audit, CloudTrail audit, AWS compliance">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://blackboxauditor.com/blog/aws-soc2-requirements-2026.html">
+    <meta property="og:title" content="AWS SOC 2 Requirements 2026: Turning Customer Responsibility Into Audit-Ready Evidence">
+    <meta property="og:description" content="AWS released new SOC 2 guidance in 2025. Learn how auditors should evaluate customer-owned SOC 2 responsibilities in AWS with structured, point-in-time evidence.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+    <meta property="article:published_time" content="2026-01-11">
+    <meta property="article:author" content="Blackbox Auditor">
+    <meta property="article:section" content="Compliance">
+
+    <link rel="canonical" href="https://blackboxauditor.com/blog/aws-soc2-requirements-2026.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AWS SOC 2 Requirements 2026: Turning Customer Responsibility Into Audit-Ready Evidence",
+        "description": "AWS released new SOC 2 guidance in 2025. Learn how auditors should evaluate customer-owned SOC 2 responsibilities in AWS with structured, point-in-time evidence.",
+        "author": {
+            "@type": "Organization",
+            "name": "Blackbox Auditor"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Blackbox Auditor",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg"
+            }
+        },
+        "datePublished": "2026-01-11",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://blackboxauditor.com/blog/aws-soc2-requirements-2026.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                <span>Blackbox Auditor</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Product
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role & Trust</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary & Scope</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
+                        <li class="dropdown-item coming-soon"><a href="#">AWS Inventory / Audit Scope</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../compare/manual-vs-blackbox-auditor.html" class="nav-link">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources/sample-reports.html" class="nav-link">Sample Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../company/contact.html" class="nav-link nav-cta">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="index.html">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>AWS SOC 2 Requirements 2026</span>
+            </nav>
+        </div>
+
+        <article class="blog-article">
+            <header class="article-header">
+                <div class="container container-narrow">
+                    <div class="blog-meta">
+                        <span class="blog-category">Compliance</span>
+                        <span class="blog-date">January 11, 2026</span>
+                    </div>
+                    <h1>AWS SOC 2 Requirements 2026: Turning Customer Responsibility Into Audit-Ready Evidence</h1>
+                    <p class="article-intro">
+                        AWS released a new AICPA SOC 2 Compliance Guide on AWS in July 2025, setting clearer expectations for how SOC 2 Trust Services Criteria should be implemented and evidenced in AWS environments heading into 2026.
+                    </p>
+                </div>
+            </header>
+
+            <div class="container container-narrow">
+                <div class="article-content">
+
+                    <p>This new guidance document represents a significant evolution in how AWS frames SOC 2 compliance expectations. It provides clear mappings between Trust Services Criteria and AWS services, offers practical implementation guidance, and reinforces the critical distinction between AWS infrastructure controls and customer responsibilities. <strong>We strongly recommend that anyone involved in SOC 2 audits or implementations—auditors, assessors, GRC professionals, and AWS practitioners—read this whitepaper in full.</strong> It sets the foundation for evidence-based SOC 2 assurance in AWS environments and clarifies expectations that will shape audit programs throughout 2026 and beyond.</p>
+
+                    <p><strong>Download the AWS SOC 2 Compliance Guide (July 2025):</strong><br>
+                    <a href="https://aws.amazon.com/blogs/security/new-whitepaper-available-aicpa-soc-2-compliance-guide-on-aws/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/blogs/security/new-whitepaper-available-aicpa-soc-2-compliance-guide-on-aws/</a></p>
+
+                    <p>While AWS continues to provide strong infrastructure-level assurances, the guidance reinforces a reality auditors already know well: <strong>SOC 2 in AWS is fundamentally about customer responsibility</strong>. AWS secures the cloud. Customers must secure, configure, monitor, and prove what happens <em>inside</em> it.</p>
+
+                    <p>This guide focuses on how auditors and assessors can evaluate those customer-owned responsibilities using structured, point-in-time evidence.</p>
+
+                    <h2>AWS SOC 2 in 2026: What Changed and Why It Matters</h2>
+                    <p>The new AWS guidance reframes SOC 2 away from checkbox compliance and toward <strong>risk-based, evidence-driven assurance</strong>. It maps SOC 2 Trust Services Criteria to AWS-native services while emphasizing that:</p>
+                    <ul>
+                        <li>AWS SOC reports cover <em>security of the cloud</em></li>
+                        <li>SOC 2 audits evaluate <em>security in the cloud</em>, which is customer-owned</li>
+                    </ul>
+                    <p>The guidance also reinforces the importance of <strong>Complementary User Entity Controls (CUECs)</strong>. If customers fail to implement them, inherited AWS controls do not stand on their own.</p>
+
+                    <h2>AWS Shared Responsibility Model (Audit Context)</h2>
+                    <p>The AWS Shared Responsibility Model defines the boundary between AWS-managed and customer-managed controls:</p>
+                    <ul>
+                        <li><strong>AWS responsibilities:</strong> Physical data centers, infrastructure, hypervisor isolation</li>
+                        <li><strong>Customer responsibilities:</strong> IAM, encryption, logging, monitoring, configuration, governance</li>
+                    </ul>
+                    <p>For SOC 2 purposes, nearly all <strong>Common Criteria (CC1–CC9)</strong> require customer-side evidence.</p>
+
+                    <p><strong>AWS Shared Responsibility Model:</strong><br>
+                    <a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/compliance/shared-responsibility-model/</a></p>
+
+                    <div style="margin: 2rem 0; text-align: center;">
+                        <img src="images/shared-responsibility-model.png" alt="AWS Shared Responsibility Model Diagram" style="max-width: 100%; height: auto; border: 1px solid #ddd;">
+                        <p style="margin-top: 1rem; font-style: italic; color: #666; font-size: 14px;">The AWS Shared Responsibility Model clearly delineates where AWS controls end and customer obligations begin for SOC 2 audit purposes.</p>
+                    </div>
+
+                    <hr>
+
+                    <h2>Key Customer-Owned SOC 2 Responsibilities in AWS</h2>
+
+                    <h3>IAM Security (CC6.1, CC6.2, CC6.3)</h3>
+                    <p>Customers are responsible for:</p>
+                    <ul>
+                        <li>Role-based access control using <a href="https://aws.amazon.com/iam/" target="_blank" rel="noopener noreferrer">AWS IAM</a></li>
+                        <li>Least privilege enforcement</li>
+                        <li>Cross-account trust relationships</li>
+                        <li>Credential lifecycle management</li>
+                    </ul>
+                    <p>BlackBox Auditor supports point-in-time extraction and reporting of IAM users, roles, policies, permission boundaries, and trust relationships to support audit validation.</p>
+
+                    <h3>Logging and Monitoring (CC7.x)</h3>
+                    <p>Customers must configure and monitor:</p>
+                    <ul>
+                        <li><a href="https://aws.amazon.com/cloudtrail/" target="_blank" rel="noopener noreferrer">AWS CloudTrail</a></li>
+                        <li>Configuration changes</li>
+                        <li>Security events and anomalies</li>
+                    </ul>
+                    <p>BlackBox Auditor provides audit-ready snapshots confirming logging scope and identifying gaps without reliance on screenshots.</p>
+
+                    <h3>Configuration and Change Management (CC5, CC8)</h3>
+                    <p>Customers must demonstrate:</p>
+                    <ul>
+                        <li>Change governance</li>
+                        <li>Configuration baselines</li>
+                        <li>Control enforcement consistency</li>
+                    </ul>
+                    <p>BlackBox Auditor produces repeatable point-in-time configuration evidence suitable for workpapers.</p>
+
+                    <hr>
+
+                    <h2>SOC 2 Control-to-Evidence Mapping (AWS Focus)</h2>
+                    <p>The following table maps SOC 2 Common Criteria to customer responsibilities in AWS and identifies typical audit evidence requirements:</p>
+
+                    <div style="overflow-x: auto; margin: 2rem 0;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                            <thead>
+                                <tr style="background: #2c3e50; color: white;">
+                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">SOC 2 Control</th>
+                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Customer Responsibility in AWS</th>
+                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Typical Audit Evidence</th>
+                                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">BlackBox Auditor Evidence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC6.1 Logical Access</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IAM roles, least privilege, segmentation</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IAM screenshots, policy exports</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IAM user/role inventory, effective permissions, trust relationships</td>
+                                </tr>
+                                <tr style="background: #fff;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC6.2 User Provisioning</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">User lifecycle management</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Access review docs, screenshots</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IAM user status and credential state</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC6.3 Access Changes</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Role modifications and approvals</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Change tickets, screenshots</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Point-in-time IAM configuration reports</td>
+                                </tr>
+                                <tr style="background: #fff;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC7.1 System Monitoring</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Logging and anomaly detection</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">CloudTrail screenshots</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Logging enablement and scope reports (CloudTrail, AWS Config)</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC7.2 Security Events</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Detection and alerting</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Incident logs</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Security configuration and monitoring summaries</td>
+                                </tr>
+                                <tr style="background: #fff;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC5.1 Control Activities</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Segregation of duties</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Policy narratives</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IAM role separation and access boundaries</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC8.1 Change Management</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Infrastructure change control</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">IaC samples, screenshots</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Configuration state and change evidence</td>
+                                </tr>
+                                <tr style="background: #fff;">
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;"><strong>CC9.1 Risk Mitigation</strong></td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">Resilience and recovery</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">DR plans</td>
+                                    <td style="padding: 12px; border: 1px solid #ddd; color: #333;">AWS configuration supporting resiliency</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <h2>Why AWS Native Reports Are Not Enough</h2>
+                    <p>AWS SOC 2 reports provide valuable assurance over AWS-managed infrastructure controls. However, they do not demonstrate:</p>
+                    <ul>
+                        <li>How IAM is implemented by the customer</li>
+                        <li>Whether customer logging is complete</li>
+                        <li>How access aligns to least privilege</li>
+                    </ul>
+                    <p>Auditors must independently validate customer controls. Relying solely on AWS SOC reports creates a gap in evidence that must be closed through customer-provided documentation.</p>
+
+                    <h2>How BlackBox Auditor Supports AWS SOC 2 Audits</h2>
+                    <p>BlackBox Auditor is intentionally designed for <strong>point-in-time, audit-grade evidence</strong>, not continuous monitoring. It reduces ambiguity and minimizes reliance on screenshots and manual exports, producing structured outputs aligned to SOC 2 expectations.</p>
+
+                    <p><strong>Key capabilities:</strong></p>
+                    <ul>
+                        <li><strong>IAM Evidence</strong> — Complete inventory of users, roles, policies, trust relationships, and effective permissions</li>
+                        <li><strong>Logging Validation</strong> — Confirmation of CloudTrail enablement, scope, and configuration</li>
+                        <li><strong>Audit-Ready Format</strong> — Timestamped, reproducible evidence suitable for SOC 2 workpapers</li>
+                    </ul>
+
+                    <p>By automating evidence collection and normalization, BlackBox Auditor allows auditors to focus on control evaluation rather than data gathering.</p>
+
+                    <hr>
+
+                    <h2>Final Thought</h2>
+                    <p>SOC 2 in AWS is no longer about explaining shared responsibility. It is about <strong>proving customer responsibility</strong> with defensible evidence.</p>
+
+                    <p>The 2025 AWS SOC 2 guidance makes clear that customer controls must be implemented, monitored, and evidenced with the same rigor as AWS infrastructure controls. Auditors evaluating AWS environments must validate customer-owned configurations using structured, point-in-time evidence.</p>
+
+                </div>
+            </div>
+
+            <section class="section">
+                <div class="container container-narrow">
+                    <div class="related-section">
+                        <h3>Related Resources</h3>
+                        <ul class="related-list">
+                            <li>
+                                <a href="../product/aws-iam-audit-evidence.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    AWS IAM Audit Evidence
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../product/aws-logging-sufficiency-integrity-audit.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    AWS Logging Sufficiency
+                                </a>
+                            </li>
+                            <li>
+                                <a href="aws-iam-best-practices-2026.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    AWS IAM Best Practices 2026
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container container-narrow">
+                    <div style="background: #f8f9fa; padding: 2rem; border-left: 4px solid #2c3e50; margin: 2rem 0;">
+                        <h3 style="margin-top: 0;">AWS Reference Links</h3>
+                        <ul style="margin-bottom: 0;">
+                            <li><a href="https://aws.amazon.com/blogs/security/new-whitepaper-available-aicpa-soc-2-compliance-guide-on-aws/" target="_blank" rel="noopener noreferrer">AWS SOC 2 Compliance Guide on AWS (2025)</a></li>
+                            <li><a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank" rel="noopener noreferrer">AWS Shared Responsibility Model</a></li>
+                            <li><a href="https://aws.amazon.com/iam/" target="_blank" rel="noopener noreferrer">AWS Identity and Access Management (IAM)</a></li>
+                            <li><a href="https://aws.amazon.com/cloudtrail/" target="_blank" rel="noopener noreferrer">AWS CloudTrail</a></li>
+                            <li><a href="https://aws.amazon.com/config/" target="_blank" rel="noopener noreferrer">AWS Config</a></li>
+                            <li><a href="https://aws.amazon.com/security-hub/" target="_blank" rel="noopener noreferrer">AWS Security Hub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Streamline Your AWS SOC 2 Audit</h2>
+                    <p>Ready to reduce evidence collection time and improve audit quality? Visit BlackBox Auditor to see sample SOC 2 evidence or connect for early access.</p>
+                    <div class="btn-group">
+                        <a href="../resources/sample-reports.html" class="btn btn-primary">View Sample SOC 2 Evidence</a>
+                        <a href="../company/contact.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo">
+                        <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                        <span>Blackbox Auditor</span>
+                    </a>
+                    <p>Audit-ready AWS evidence for auditors and GRC teams. Not a Cloud Security Posture Management Tool. Built for auditors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
+                        <li><a href="../product/aws-sso-federated-access-audit.html">SSO & Federated Access</a></li>
+                        <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
+                        <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
+                        <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
+                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../company/contact.html">Contact</a></li>
+                        <li><a href="../company/security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Blackbox Auditor. All rights reserved.</span>
+                <span class="footer-tagline">Built for auditors and GRC teams.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
