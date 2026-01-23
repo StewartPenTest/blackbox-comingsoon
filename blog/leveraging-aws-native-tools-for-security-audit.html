@@ -3,229 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Leveraging AWS Native Tools for Your First Security Audit: A Practical Guide for SaaS Startups | Blackbox Auditor</title>
-    <link rel="stylesheet" href="../styles.css">
+    <meta name="description" content="Learn how to conduct your first AWS security audit using native tools like AWS Config and Well-Architected Framework. A practical guide for SaaS startups without dedicated security engineers.">
+    <meta name="keywords" content="AWS security audit, AWS Config, AWS Well-Architected Framework, SaaS security, startup security audit, AWS native tools, IAM audit, compliance baseline">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://blackboxauditor.com/blog/leveraging-aws-native-tools-for-security-audit.html">
+    <meta property="og:title" content="Leveraging AWS Native Tools for Your First Security Audit: A Practical Guide for SaaS Startups">
+    <meta property="og:description" content="Learn how to conduct your first AWS security audit using native tools like AWS Config and Well-Architected Framework.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+    <meta property="article:published_time" content="2026-01-23">
+    <meta property="article:author" content="Blackbox Auditor">
+    <meta property="article:section" content="Security Audit">
+
+    <link rel="canonical" href="https://blackboxauditor.com/blog/leveraging-aws-native-tools-for-security-audit.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Leveraging AWS Native Tools for Your First Security Audit: A Practical Guide for SaaS Startups",
+        "description": "Learn how to conduct your first AWS security audit using native tools like AWS Config and Well-Architected Framework.",
+        "author": {
+            "@type": "Organization",
+            "name": "Blackbox Auditor"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Blackbox Auditor",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg"
+            }
+        },
+        "datePublished": "2026-01-23",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://blackboxauditor.com/blog/leveraging-aws-native-tools-for-security-audit.html"
+        }
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="../" class="logo">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
                 <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
-                Blackbox Auditor
+                <span>Blackbox Auditor</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#">Product</a>
-                        <ul class="dropdown">
-                            <li><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
-                            <li><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
-                            <li><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role & Trust</a></li>
-                            <li><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary & Scope</a></li>
-                            <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
-                            <li><a href="#">AWS Inventory / Audit Scope</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../compare/manual-vs-blackbox-auditor.html">Compare</a></li>
-                    <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
-                    <li><a href="index.html">Blog</a></li>
-                    <li><a href="../company/contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Product
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role & Trust</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary & Scope</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
+                        <li class="dropdown-item coming-soon"><a href="#">AWS Inventory / Audit Scope</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../compare/manual-vs-blackbox-auditor.html" class="nav-link">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources/sample-reports.html" class="nav-link">Sample Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../company/contact.html" class="nav-link nav-cta">Contact</a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <div class="breadcrumb">
-            <div class="container">
+        <div class="container">
+            <nav class="breadcrumb">
                 <a href="../">Home</a>
-                /
+                <span class="breadcrumb-separator">/</span>
                 <a href="index.html">Blog</a>
-                /
-                Leveraging AWS Native Tools for Your First Security Audit
-            </div>
+                <span class="breadcrumb-separator">/</span>
+                <span>Leveraging AWS Native Tools for Your First Security Audit</span>
+            </nav>
         </div>
 
-        <article class="blog-post">
-            <div class="container">
-                <div class="post-meta">
-                    <span class="category">Security Audit</span>
-                    <span class="date">January 23, 2026</span>
+        <article class="blog-article">
+            <header class="article-header">
+                <div class="container container-narrow">
+                    <div class="blog-meta">
+                        <span class="blog-category">Security Audit</span>
+                        <span class="blog-date">January 23, 2026</span>
+                    </div>
+                    <h1>Leveraging AWS Native Tools for Your First Security Audit: A Practical Guide for SaaS Startups</h1>
+                    <p class="article-intro">
+                        You're shipping features daily, but your security posture is a black box. You know there's likely an overly permissive IAM policy or a public S3 bucket lurking in your stack, but you don't have the headcount for a dedicated security engineer or the budget for a consultant.
+                    </p>
                 </div>
+            </header>
 
-                <h1>Leveraging AWS Native Tools for Your First Security Audit: A Practical Guide for SaaS Startups</h1>
+            <div class="container container-narrow">
+                <div class="article-content">
+                    
+                    <p>The good news? In 2026, AWS gives you powerful, built-in tools to conduct a solid baseline security review. You can establish a professional security baseline in-house using two native tools: <strong>AWS Config</strong> and the <strong>AWS Well-Architected Framework</strong>. Here is the playbook for conducting your first AWS security audit without stalling your roadmap.</p>
 
-                <p>You're shipping features daily, but your security posture is a black box. You know there's likely an overly permissive IAM policy or a public S3 bucket lurking in your stack, but you don't have the headcount for a dedicated security engineer or the budget for a consultant.</p>
+                    <img src="images/image1.png" alt="Config vs. Framework Venn Diagram" style="max-width: 100%; height: auto; margin: 2rem 0;">
 
-                <p>The good news? In 2026, AWS gives you powerful, built-in tools to conduct a solid baseline security review. You can establish a professional security baseline in-house using two native tools: <strong>AWS Config</strong> and the <strong>AWS Well-Architected Framework</strong>. Here is the playbook for conducting your first AWS security audit without stalling your roadmap.</p>
+                    <h2>1. AWS Config: Your Automated Compliance Detective</h2>
+                    <p>AWS Config is your automated compliance detective. It continuously monitors your AWS resource configurations and evaluates them against rules you define. For a startup, this is gold—it's like having a junior security analyst working 24/7, flagging issues as they occur.</p>
 
-                <img src="images/image1.png" alt="Config vs. Framework Venn Diagram" class="blog-image">
+                    <h3>The High-Signal Configuration</h3>
+                    <p>Setting up AWS Config is straightforward, but the key is to not boil the ocean. Enable Config in your production account first. Start with <strong>AWS Managed Rules</strong>. As of early 2026, AWS maintains hundreds of pre-built rules, so don't reinvent the wheel.</p>
 
-                <h2>1. AWS Config: Your Automated Compliance Detective</h2>
-
-                <p>AWS Config is your automated compliance detective. It continuously monitors your AWS resource configurations and evaluates them against rules you define. For a startup, this is gold—it's like having a junior security analyst working 24/7, flagging issues as they occur.</p>
-
-                <h3>The High-Signal Configuration</h3>
-
-                <p>Setting up AWS Config is straightforward, but the key is to not boil the ocean. Enable Config in your production account first. Start with <strong>AWS Managed Rules</strong>. As of early 2026, AWS maintains hundreds of pre-built rules, so don't reinvent the wheel.</p>
-
-                <p><strong>Managed Rules:</strong></p>
-
-                <p>For a security-focused audit, ensure you are recording:</p>
-
-                <ul>
-                    <li>IAM (Users, Groups, Roles, Policies)</li>
-                    <li>EC2 (Instances, Security Groups, Network ACLs)</li>
-                    <li>S3 (Buckets, Account Level Public Access)</li>
-                    <li>RDS (Instances, Clusters, Snapshots)</li>
-                </ul>
-
-                <h3>Pro-Tip: 2026 Cost Optimization</h3>
-
-                <p>AWS Config costs can spike if you record ephemeral resources (like Lambda versions or EC2 Spot instances).</p>
-
-                <p><strong>The Fix:</strong> Set your "Trigger Type" to <strong>Configuration changes</strong> rather than periodic evaluation. You'll get an alert the moment a resource becomes non-compliant without paying for redundant checks on resources that haven't changed.</p>
-
-                <h3>Prioritizing Config Rules for Your AWS Security Audit</h3>
-
-                <p>I've learned which Config rules provide the most immediate value. You want to focus on "high-signal" areas first:</p>
-
-                <ul>
-                    <li><strong>IAM-Focused Rules</strong> (Critical for any AWS IAM Audit)</li>
-                    <li><strong>Data Protection Rules:</strong> This category covers encryption requirements.</li>
-                    <li><strong>Network Security Rules:</strong> Focus on security group configurations that could expose resources.</li>
-                </ul>
-
-                <h2>2. AWS Well-Architected Tool: The Strategic Roadmap</h2>
-
-                <p>While Config catches technical errors, the <strong>Well-Architected Framework (WAF)</strong> identifies architectural gaps.</p>
-
-                <h3>The Security Pillar Self-Assessment</h3>
-
-                <p>Focus exclusively on the <strong>Security Pillar</strong>. In 2026, the AWS Well-Architected Tool allows you to pull data directly from <strong>AWS Trusted Advisor</strong>. This integration can automatically answer ~30% of the audit questions for you, saving hours of manual verification.</p>
-
-                <p><strong>Key areas to scrutinize:</strong></p>
-
-                <ul>
-                    <li><strong>Identity Management:</strong> Are you still using long-lived IAM Access Keys for developers? (The framework will push you toward IAM Identity Center).</li>
-                    <li><strong>Detection:</strong> Is CloudTrail enabled and being streamed to a centralized S3 bucket or CloudWatch Logs?</li>
-                    <li><strong>Infrastructure Protection:</strong> Are your database subnets truly private, or just "not assigned a public IP"?</li>
-                </ul>
-
-                <h2>The Two-Week Security Sprint</h2>
-
-                <p>Don't let the audit drag on. Execute this in a focused sprint:</p>
-
-                <img src="images/image2.png" alt="Two-Week Security Sprint Timeline" class="blog-image">
-
-                <table class="content-table">
-                    <thead>
-                        <tr>
-                            <th>Phase</th>
-                            <th>Tasks</th>
-                            <th>Deliverable</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Week 1: Visibility</strong></td>
-                            <td>Enable Config (Resource-specific) + Well-Architected Security Pillar.</td>
-                            <td>A list of "Non-Compliant" resources and a Risk Inventory.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Week 2: Remediation</strong></td>
-                            <td>Patch public S3/RDS instances, rotate old keys, and enable MFA.</td>
-                            <td>A generated Well-Architected PDF for your baseline.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>When Native Tools Hit Their Limits</h2>
-
-                <p>AWS Config and Well-Architected Framework are excellent for establishing a baseline, but they have "ceiling" effects for growing teams:</p>
-
-                <img src="images/image3.png" alt="IAM Permission Gap Visualization" class="blog-image">
-
-                <ul>
-                    <li><strong>Effective Permissions:</strong> Config can tell you if a policy is "broad," but it won't show you a complex <strong>Privilege Escalation path</strong> where a Dev can become an Admin via a specific combination of permissions.</li>
-                    <li><strong>Cross-Account Logic:</strong> As you move to a multi-account setup (Dev/Prod), managing disparate Config rules becomes a management nightmare.</li>
-                    <li><strong>Audit Readiness:</strong> Auditors want a narrative. Native tools provide raw data, but they don't synthesize that data into a document that wins over an Enterprise CISO.</li>
-                </ul>
-
-                <h2>Take Your Security to the Next Level</h2>
-
-                <p>If you've completed your Well-Architected review and have Config running, you're ahead of most startups. You have the data.</p>
-
-                <p>But if you need to turn that data into <strong>comprehensive IAM analysis</strong> and <strong>auditor-ready documentation</strong> without spending another 40 hours on it, that's where <strong>Blackbox Auditor</strong> comes in. We automate the deep-dive analysis that native tools miss, giving you a professional-grade audit in hours, not weeks.</p>
-
-                <p><strong>Ready to see the gaps your native tools are missing?</strong> <a href="../company/contact.html">Check out Blackbox Auditor</a>.</p>
-
-                <div class="related-resources">
-                    <h3>Related Resources</h3>
+                    <p><strong>Managed Rules:</strong></p>
+                    <p>For a security-focused audit, ensure you are recording:</p>
                     <ul>
-                        <li><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
-                        <li><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
-                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Automated IAM Review</a></li>
+                        <li>IAM (Users, Groups, Roles, Policies)</li>
+                        <li>EC2 (Instances, Security Groups, Network ACLs)</li>
+                        <li>S3 (Buckets, Account Level Public Access)</li>
+                        <li>RDS (Instances, Clusters, Snapshots)</li>
                     </ul>
-                </div>
 
+                    <h3>Pro-Tip: 2026 Cost Optimization</h3>
+                    <p>AWS Config costs can spike if you record ephemeral resources (like Lambda versions or EC2 Spot instances).</p>
+                    <p><strong>The Fix:</strong> Set your "Trigger Type" to <strong>Configuration changes</strong> rather than periodic evaluation. You'll get an alert the moment a resource becomes non-compliant without paying for redundant checks on resources that haven't changed.</p>
+
+                    <h3>Prioritizing Config Rules for Your AWS Security Audit</h3>
+                    <p>I've learned which Config rules provide the most immediate value. You want to focus on "high-signal" areas first:</p>
+                    <ul>
+                        <li>IAM-Focused Rules (Critical for any AWS IAM Audit)</li>
+                        <li>Data Protection Rules: This category covers encryption requirements.</li>
+                        <li>Network Security Rules: Focus on security group configurations that could expose resources.</li>
+                    </ul>
+
+                    <h2>2. AWS Well-Architected Tool: The Strategic Roadmap</h2>
+                    <p>While Config catches technical errors, the <strong>Well-Architected Framework (WAF)</strong> identifies architectural gaps.</p>
+
+                    <h3>The Security Pillar Self-Assessment</h3>
+                    <p>Focus exclusively on the <strong>Security Pillar</strong>. In 2026, the AWS Well-Architected Tool allows you to pull data directly from <strong>AWS Trusted Advisor</strong>. This integration can automatically answer ~30% of the audit questions for you, saving hours of manual verification.</p>
+
+                    <p><strong>Key areas to scrutinize:</strong></p>
+                    <ul>
+                        <li><strong>Identity Management:</strong> Are you still using long-lived IAM Access Keys for developers? (The framework will push you toward IAM Identity Center).</li>
+                        <li><strong>Detection:</strong> Is CloudTrail enabled and being streamed to a centralized S3 bucket or CloudWatch Logs?</li>
+                        <li><strong>Infrastructure Protection:</strong> Are your database subnets truly private, or just "not assigned a public IP"?</li>
+                    </ul>
+
+                    <h2>The Two-Week Security Sprint</h2>
+                    <p>Don't let the audit drag on. Execute this in a focused sprint:</p>
+
+                    <img src="images/image2.png" alt="Two-Week Security Sprint Timeline" style="max-width: 100%; height: auto; margin: 2rem 0;">
+
+                    <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
+                        <thead>
+                            <tr style="background-color: #f4f4f4;">
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left;"><strong>Phase</strong></th>
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left;"><strong>Tasks</strong></th>
+                                <th style="border: 1px solid #ddd; padding: 12px; text-align: left;"><strong>Deliverable</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px;"><strong>Week 1: Visibility</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">Enable Config (Resource-specific) + Well-Architected Security Pillar.</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">A list of "Non-Compliant" resources and a Risk Inventory.</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 12px;"><strong>Week 2: Remediation</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">Patch public S3/RDS instances, rotate old keys, and enable MFA.</td>
+                                <td style="border: 1px solid #ddd; padding: 12px;">A generated Well-Architected PDF for your baseline.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>When Native Tools Hit Their Limits</h2>
+                    <p>AWS Config and Well-Architected Framework are excellent for establishing a baseline, but they have "ceiling" effects for growing teams:</p>
+
+                    <img src="images/image3.png" alt="IAM Permission Gap Visualization" style="max-width: 100%; height: auto; margin: 2rem 0;">
+
+                    <ul>
+                        <li><strong>Effective Permissions:</strong> Config can tell you if a policy is "broad," but it won't show you a complex <strong>Privilege Escalation path</strong> where a Dev can become an Admin via a specific combination of permissions.</li>
+                        <li><strong>Cross-Account Logic:</strong> As you move to a multi-account setup (Dev/Prod), managing disparate Config rules becomes a management nightmare.</li>
+                        <li><strong>Audit Readiness:</strong> Auditors want a narrative. Native tools provide raw data, but they don't synthesize that data into a document that wins over an Enterprise CISO.</li>
+                    </ul>
+
+                    <h2>Take Your Security to the Next Level</h2>
+                    <p>If you've completed your Well-Architected review and have Config running, you're ahead of most startups. You have the data.</p>
+                    <p>But if you need to turn that data into <strong>comprehensive IAM analysis</strong> and <strong>auditor-ready documentation</strong> without spending another 40 hours on it, that's where <strong>Blackbox Auditor</strong> comes in. We automate the deep-dive analysis that native tools miss, giving you a professional-grade audit in hours, not weeks.</p>
+                    <p><strong>Ready to see the gaps your native tools are missing?</strong> <a href="../company/contact.html">Check out Blackbox Auditor</a>.</p>
+
+                </div>
+            </div>
+
+            <section class="section">
+                <div class="container container-narrow">
+                    <div class="related-section">
+                        <h3>Related Resources</h3>
+                        <ul class="related-list">
+                            <li>
+                                <a href="../product/aws-iam-audit-evidence.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    AWS IAM Audit Evidence
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../product/aws-sso-federated-access-audit.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    AWS SSO & Federated Access
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../compare/manual-vs-blackbox-auditor.html">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    Manual vs Automated IAM Review
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <section class="section">
+            <div class="container">
                 <div class="cta-section">
                     <h2>See IAM Evidence in Action</h2>
                     <p>Ready to streamline your next AWS IAM audit? Visit BlackBox Auditor for samples or connect for early access and a free scan.</p>
-                    <div class="cta-buttons">
+                    <div class="btn-group">
                         <a href="../resources/sample-reports.html" class="btn btn-primary">View Sample IAM Evidence</a>
                         <a href="../company/contact.html" class="btn btn-secondary">Get a Free IAM Scan</a>
                     </div>
                 </div>
             </div>
-        </article>
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="../" class="logo">
+                    <a href="../" class="nav-logo">
                         <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
-                        Blackbox Auditor
+                        <span>Blackbox Auditor</span>
                     </a>
                     <p>Audit-ready AWS evidence for auditors and GRC teams. Not a Cloud Security Posture Management Tool. Built for auditors.</p>
                 </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
-                            <li><a href="../product/aws-sso-federated-access-audit.html">SSO & Federated Access</a></li>
-                            <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
-                            <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
-                            <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
-                            <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
-                            <li><a href="index.html">Blog</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="../company/contact.html">Contact</a></li>
-                            <li><a href="../company/security.html">Security</a></li>
-                        </ul>
-                    </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
+                        <li><a href="../product/aws-sso-federated-access-audit.html">SSO & Federated Access</a></li>
+                        <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
+                        <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
+                        <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
+                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../company/contact.html">Contact</a></li>
+                        <li><a href="../company/security.html">Security</a></li>
+                    </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 Blackbox Auditor. All rights reserved.<br>Built for auditors and GRC teams.</p>
+                <span>&copy; 2026 Blackbox Auditor. All rights reserved.</span>
+                <span class="footer-tagline">Built for auditors and GRC teams.</span>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
