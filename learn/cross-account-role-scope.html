@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technical Reference: Cross-Account IAM Roles and Audit Scoping | Blackbox Auditor</title>
+    <meta name="description" content="Technical reference on cross-account IAM roles, risk tiering, trust policies, and audit scope expansion for AWS environments.">
+    <meta name="keywords" content="cross-account IAM roles, audit scope, AWS IAM trust policy, sts:AssumeRole, IAM audit reference, GRC guidance">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://blackboxauditor.com/learn/cross-account-role-scope.html">
+    <meta property="og:title" content="Technical Reference: Cross-Account IAM Roles and Audit Scoping">
+    <meta property="og:description" content="Technical reference on cross-account IAM roles, risk tiering, trust policies, and audit scope expansion for AWS environments.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+    <meta property="og:image:alt" content="Blackbox Auditor logo">
+
+    <link rel="canonical" href="https://blackboxauditor.com/learn/cross-account-role-scope.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                <span>Blackbox Auditor</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Product
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-sso-federated-access-audit.html">AWS SSO & Federated Access</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role & Trust</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary & Scope</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
+                        <li class="dropdown-item coming-soon"><a href="#">AWS Inventory / Audit Scope</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../compare/manual-vs-blackbox-auditor.html" class="nav-link">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources/sample-reports.html" class="nav-link">Sample Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../blog/index.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../company/contact.html" class="nav-link nav-cta">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Learn</span>
+                <span class="breadcrumb-separator">/</span>
+                <span>Cross-Account Role Scope</span>
+            </nav>
+        </div>
+
+        <article class="blog-article">
+            <header class="article-header">
+                <div class="container container-narrow">
+                    <div class="blog-meta">
+                        <span class="blog-category">Technical Reference</span>
+                    </div>
+                    <h1>Technical Reference: Cross-Account IAM Roles and Audit Scoping</h1>
+                    <p class="article-intro">
+                        Target Audience: IT Auditors, GRC Professionals, PCI/SOC/HITRUST Assessors
+                        <br>
+                        Document ID: BBA-REF-AWS-01
+                        <br>
+                        Subject: Impact of Cross-Account Role Assumption on Identity and Access Management (IAM) Boundaries
+                    </p>
+                </div>
+            </header>
+
+            <div class="container container-narrow">
+                <div class="article-content">
+
+                    <h2>1. Overview</h2>
+                    <p>In AWS, a <strong>Cross-Account IAM Role</strong> allows an entity (User, Service, or Application) in one AWS account (the <strong>Source</strong>) to perform actions in another AWS account (the <strong>Destination</strong>).</p>
+
+                    <p>This is a standard architectural pattern for centralized management and third-party integrations. However, from an audit perspective, this configuration establishes a <strong>Trust Relationship</strong> that effectively extends the identity boundary of the Destination account into the Source account.</p>
+
+                    <blockquote>
+                        <strong>Official AWS Documentation:</strong> For the underlying security specifications, refer to the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html" target="_blank" rel="noopener noreferrer">AWS IAM User Guide: Cross-Account Resource Access</a>.
+                    </blockquote>
+
+                    <hr>
+
+                    <h2>2. Risk Tiering: Prioritizing Audit Effort</h2>
+                    <p>Not all cross-account roles carry the same risk. Auditors should prioritize effort based on the permission set of the role being assumed in the destination account.</p>
+
+                    <h3>Tier 1: High-Risk (Administrative or "Admin-Like")</h3>
+                    <ul>
+                        <li><strong>Permissions:</strong> <code>AdministratorAccess</code>, <code>PowerUserAccess</code>, or custom policies containing <code>iam:*</code>, <code>organizations:*</code>, or broad <code>*</code> actions on sensitive data (S3, RDS, DynamoDB).</li>
+                        <li><strong>Audit Requirement:</strong> Requires a full evaluation of the Source account's identity governance and authentication controls.</li>
+                    </ul>
+
+                    <h3>Tier 2: Limited / Tool-Specific Access</h3>
+                    <ul>
+                        <li><strong>Permissions:</strong> <code>ReadOnlyAccess</code>, <code>SecurityAudit</code>, or highly scoped resource-level permissions (for example, access to a single S3 logging bucket or specific EC2 metadata).</li>
+                        <li><strong>Context:</strong> Common for 3rd-party SaaS tools (monitoring, cost management, security scanners).</li>
+                        <li><strong>Audit Requirement:</strong> Verify the role follows the "Principle of Least Privilege" and ensure the Trust Policy uses a unique <code>ExternalId</code> to prevent "Confused Deputy" risks.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>3. The Technical Mechanism: The "Trust Handshake"</h2>
+                    <p>Access is governed by two independent policy decisions that must both be present for access to succeed:</p>
+                    <ol>
+                        <li><strong>The Trust Policy (Destination Account):</strong> A resource-based policy attached to the IAM role that defines <em>who</em> is allowed to assume it (the "Lock").</li>
+                        <li><strong>The Identity Policy (Source Account):</strong> A policy attached to a user or role in the source account that grants permission to call the <code>sts:AssumeRole</code> API (the "Key").</li>
+                    </ol>
+
+                    <hr>
+
+                    <h2>4. Why This Expands Audit Scope</h2>
+                    <p>When a Destination account trusts a Source account with <strong>Tier 1 permissions</strong>, the core identity controls typically reviewed in an audit effectively "inherit" the posture of the Source account. The auditor must verify the following in the Source environment:</p>
+                    <ul>
+                        <li><strong>Password & MFA Policies:</strong> Authentication happens at the point of origin. Password complexity, rotation, and MFA enforcement must be evaluated in the Source account or its connected Identity Provider (IdP/SSO).</li>
+                        <li><strong>Uniquely Identifiable Identities:</strong> Auditors must ensure the Source account does not use generic or shared IDs. If multiple individuals use a single Source identity to assume a Destination role, accountability and non-repudiation are lost.</li>
+                        <li><strong>Identity Chaining:</strong> Access is often a chain (for example, <strong>SSO User -&gt; Source IAM Role -&gt; Destination IAM Role</strong>). The auditor must evaluate every link, including the management of SSO permission sets and any permanent Access Keys used by automation (CI/CD).</li>
+                    </ul>
+
+                    <h3>Ownership & Responsibility Impact</h3>
+                    <ul>
+                        <li><strong>Internal Source (Same Company):</strong> If the Source and Destination accounts are owned by the same entity, the Source account is functionally "In-Scope." A review of its IAM management, deprovisioning processes, and logging is necessary to determine the impact on the Destination environment.</li>
+                        <li><strong>External Source (Third-Party):</strong> If a Source account owned by a different company holds Admin-like permissions, this represents a significant security risk. This should be treated as a high-priority finding, requiring an immediate review of the third-party's access requirements and the implementation of strict "Least Privilege" controls.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>5. High-Risk Configuration Patterns</h2>
+                    <p>Auditors should flag the following patterns for remediation:</p>
+                    <ul>
+                        <li><strong>The "Full Account" Trust:</strong> <code>Principal: { "AWS": "arn:aws:iam::123456789012:root" }</code>. This trusts the <em>entire</em> source account. Any administrator in the source account can grant <em>any</em> user the ability to assume this role.</li>
+                        <li><strong>CI/CD Pipeline Access:</strong> Roles assumed by automation in a separate "Dev" or "Shared Services" account that have "Write" or "Admin" access to Production.</li>
+                        <li><strong>Missing External IDs:</strong> Absence of an <code>ExternalId</code> when trusting a 3rd-party vendor, which is a requirement for many compliance frameworks to prevent cross-tenant unauthorized access.</li>
+                    </ul>
+
+                    <hr>
+
+                    <h2>6. Guidance for Auditors</h2>
+                    <ol>
+                        <li><strong>Identify Trust Origins:</strong> List all AWS accounts trusted by the environment.</li>
+                        <li><strong>Filter by Risk:</strong> Separate limited 3rd-party tool roles from internal administrative roles.</li>
+                        <li><strong>Audit the Point of Origin:</strong> For Tier 1 roles, request evidence of password policies, MFA enforcement, and access reviews from the <strong>Source</strong> account or IdP.</li>
+                        <li><strong>Verify MFA:</strong> Ensure the Trust Policy contains a condition requiring <code>MultiFactorAuthPresent: true</code> for human-assumed roles.</li>
+                    </ol>
+
+                    <hr>
+
+                    <p><em>This reference material is provided by <strong>Blackbox Auditor</strong> to assist in the interpretation of IAM configurations and the determination of appropriate audit boundaries.</em></p>
+
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo">
+                        <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                        <span>Blackbox Auditor</span>
+                    </a>
+                    <p>Audit-ready AWS evidence for auditors and GRC teams. Not a Cloud Security Posture Management Tool. Built for auditors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
+                        <li><a href="../product/aws-sso-federated-access-audit.html">SSO & Federated Access</a></li>
+                        <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
+                        <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
+                        <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
+                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../company/contact.html">Contact</a></li>
+                        <li><a href="../company/security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Blackbox Auditor. All rights reserved.</span>
+                <span class="footer-tagline">Built for auditors and GRC teams.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
