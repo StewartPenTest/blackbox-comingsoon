@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Privacy Policy | Blackbox Auditor</title>
+    <meta name="description" content="BlackBox Auditor privacy policy. Learn how we collect, use, and protect your information when using our AWS audit evidence platform.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blackboxauditor.com/company/privacy-policy.html">
+    <meta property="og:title" content="Privacy Policy | Blackbox Auditor">
+    <meta property="og:description" content="How BlackBox Auditor collects, uses, and protects your information.">
+    <meta property="og:image" content="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg">
+
+    <link rel="canonical" href="https://blackboxauditor.com/company/privacy-policy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                <span>Blackbox Auditor</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Product
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a href="../product/aws-iam-audit-evidence.html">AWS IAM Audit Evidence</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-sso-federated-access-audit.html">AWS SSO &amp; Federated Access</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-cross-account-role-trust-audit.html">AWS Cross-Account Role &amp; Trust</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-external-boundary-scope-audit.html">AWS External Boundary &amp; Scope</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-logging-sufficiency-integrity-audit.html">AWS Logging Sufficiency</a></li>
+                        <li class="dropdown-item"><a href="../product/aws-inventory-audit-scope.html">AWS Inventory / Audit Scope</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../compare/manual-vs-blackbox-auditor.html" class="nav-link">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources/sample-reports.html" class="nav-link">Sample Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../company/contact.html" class="nav-link nav-cta">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="#">Company</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Privacy Policy</span>
+            </nav>
+        </div>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container container-narrow">
+                <h1>Privacy Policy</h1>
+                <p class="hero-subtitle">Last Updated: May 1, 2026</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container container-narrow">
+                <p>BlackBox Auditor LLC ("we," "us," or "our") provides a SaaS platform that helps auditors, GRC professionals, and internal security teams gather evidence from AWS environments. This policy explains how we collect, use, protect, and retain information when you visit blackboxauditor.com and use our services.</p>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Who This Applies To -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Who This Policy Applies To</h2>
+                <p>This policy applies to two categories of users:</p>
+
+                <div class="card mt-3">
+                    <h3>Direct Users</h3>
+                    <p>Individuals employed by or acting on behalf of the organization that owns the AWS account being assessed.</p>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>Third-Party Users (e.g., Audit Firms)</h3>
+                    <p>Professionals who use BlackBox Auditor on behalf of clients, connecting to AWS accounts owned by a third party.</p>
+                    <p style="margin-top: 0.75rem;">If you are an audit firm or external professional using this tool on a client's AWS environment, you are responsible for ensuring you have obtained appropriate written authorization from that client before initiating any connection or scan. AWS environment metadata processed through the platform in this context is handled on your behalf, and you remain the data controller for that engagement. We recommend maintaining your own data processing agreements with your clients as required by applicable law.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Information We Collect -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Information We Collect</h2>
+
+                <div class="card mt-3">
+                    <h3>Account Information</h3>
+                    <p>When you register, we collect your name, email address, and billing information. Billing transactions are processed by PayPal and/or Stripe — we do not store raw payment card details.</p>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>AWS Connection Credentials</h3>
+                    <p>To initiate a connection, you provide an IAM Role ARN and External ID. These are used transiently to establish the cross-account session and are <strong>not stored in our systems</strong>. We retain no record of your IAM Role ARN, External ID, or AWS Account ID after the connection is made.</p>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>AWS Environment Metadata</h3>
+                    <p>To generate audit reports, we ingest configuration metadata from your AWS environment — for example, IAM policies and resource configuration settings. We do not access, read, or store application data, database contents, secrets, or credential values.</p>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>Website Analytics</h3>
+                    <p>Blackboxauditor.com uses Google Analytics to collect standard website usage data such as pages visited, browser type, and approximate location. Google Analytics may set cookies in your browser. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>Service Usage Analytics</h3>
+                    <p>We operate an internal analytics system hosted on AWS infrastructure to track report generation and usage activity within the platform. This data is used solely for service improvement, capacity planning, and security monitoring. It is not shared with third parties and is subject to the same 14-day retention period described below.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Zero-Credential Architecture -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>How We Access Your Data &mdash; Zero-Credential Architecture</h2>
+
+                <div class="card" style="border-color: var(--success); background: rgba(16, 185, 129, 0.05);">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div style="flex-shrink: 0; margin-top: 0.25rem;">
+                            <svg style="width: 36px; height: 36px; stroke: var(--success);" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p style="margin: 0;">BlackBox Auditor holds no persistent IAM Access Keys or Secret Keys. All access is initiated through a customer-controlled AWS Cross-Account IAM Role. The External ID you configure acts as a shared secret that protects against unauthorized role assumption (a "confused deputy" attack). Because we do not store your connection credentials, you maintain complete control: revoking access is as simple as deleting or modifying the trust policy on the IAM role within your own AWS account.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Data Retention -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Data Retention</h2>
+
+                <div class="card mt-3">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border);">
+                                <th style="text-align: left; padding: 0.75rem 1rem 0.75rem 0; color: var(--text-primary); font-weight: 600;">Data Type</th>
+                                <th style="text-align: left; padding: 0.75rem 0; color: var(--text-primary); font-weight: 600;">Retention Period</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem 1rem 0.75rem 0; color: var(--text-secondary);">Account information (name, email)</td>
+                                <td style="padding: 0.75rem 0; color: var(--text-secondary);">Duration of your account, plus 90 days after termination</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem 1rem 0.75rem 0; color: var(--text-secondary);">AWS connection credentials (Role ARN, External ID)</td>
+                                <td style="padding: 0.75rem 0; color: var(--text-secondary);">Not retained &mdash; used transiently only</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 0.75rem 1rem 0.75rem 0; color: var(--text-secondary);">AWS environment metadata / generated reports</td>
+                                <td style="padding: 0.75rem 0; color: var(--text-secondary);">14 days from generation, then permanently deleted</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem 1rem 0.75rem 0; color: var(--text-secondary);">Service usage analytics</td>
+                                <td style="padding: 0.75rem 0; color: var(--text-secondary);">14 days, then permanently deleted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-3" style="color: var(--text-secondary);">We strongly recommend downloading your reports before the 14-day window expires. Deleted reports are not recoverable.</p>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Third-Party Service Providers -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Third-Party Service Providers</h2>
+                <p>We share limited data with the following providers who assist in operating the platform:</p>
+
+                <div class="card mt-3">
+                    <ul>
+                        <li><strong>PayPal and/or Stripe</strong> &mdash; billing and subscription management</li>
+                        <li><strong>Zoho</strong> &mdash; account and transactional email communications</li>
+                        <li><strong>Google</strong> &mdash; website analytics (blackboxauditor.com)</li>
+                    </ul>
+                    <p style="margin-top: 0.75rem; margin-bottom: 0;">These providers are contractually bound to process data solely on our instructions and in accordance with applicable law.</p>
+                </div>
+
+                <div class="card mt-3" style="border-color: var(--primary); background: rgba(99, 102, 241, 0.05);">
+                    <p style="margin: 0; font-weight: 500;">We do not sell, rent, or share your personal data with third parties for their own marketing or commercial purposes.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Your Rights -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Your Rights</h2>
+
+                <div class="card mt-3">
+                    <h3>For Users in the European Economic Area (GDPR)</h3>
+                    <p>We process your personal data on the basis of contract performance (account information and service delivery) and legitimate interests (security and platform integrity). You have the right to:</p>
+                    <ul>
+                        <li>Access the personal data we hold about you</li>
+                        <li>Correct inaccurate or incomplete data</li>
+                        <li>Request erasure of your data ("right to be forgotten")</li>
+                        <li>Restrict or object to processing of your data</li>
+                        <li>Receive your data in a portable format</li>
+                        <li>Lodge a complaint with your national data protection supervisory authority</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-3">
+                    <h3>For California Residents (CCPA)</h3>
+                    <p>You have the right to know what personal information we collect and how it is used, to request deletion of your data, and to opt out of the sale of your personal information.</p>
+                    <p style="margin-bottom: 0;"><strong>We do not sell personal information.</strong></p>
+                </div>
+
+                <p class="mt-3" style="color: var(--text-secondary);">To exercise any of the above rights, contact us at <a href="mailto:info@blackboxauditor.com">info@blackboxauditor.com</a>.</p>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Security & Breach -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Data Security and Breach Notification</h2>
+                <div class="card">
+                    <p style="margin: 0;">We implement industry-standard security measures to protect your information. In the event of a data breach affecting your personal information, we will notify affected users as required by applicable law.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Data Controller -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Data Controller</h2>
+                <div class="card">
+                    <p style="margin: 0; line-height: 1.8;">
+                        BlackBox Auditor LLC<br>
+                        4057 Oxford Glen Dr.<br>
+                        Franklin, TN 37067<br>
+                        <a href="mailto:info@blackboxauditor.com">info@blackboxauditor.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><div class="divider"></div></div>
+
+        <!-- Changes -->
+        <section class="section">
+            <div class="container container-narrow">
+                <h2>Changes to This Policy</h2>
+                <p>We may update this policy periodically. Registered users will be notified of material changes by email. The "Last Updated" date at the top of this page reflects the most recent revision.</p>
+            </div>
+        </section>
+
+        <!-- Questions Section -->
+        <section class="section">
+            <div class="container container-narrow">
+                <div class="related-section">
+                    <h3>Privacy Questions?</h3>
+                    <p style="margin-bottom: 1rem;">Contact us at any time to exercise your rights or ask about how we handle your data.</p>
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo">
+                        <img src="https://blackbox-images.s3.us-east-1.amazonaws.com/blackboxauditor-logo.jpg" alt="Blackbox Auditor Logo">
+                        <span>Blackbox Auditor</span>
+                    </a>
+                    <p>Audit-ready AWS evidence for auditors and GRC teams. Not a Cloud Security Posture Management Tool. Built for auditors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/aws-iam-audit-evidence.html">IAM Audit Evidence</a></li>
+                        <li><a href="../product/aws-sso-federated-access-audit.html">SSO &amp; Federated Access</a></li>
+                        <li><a href="../product/aws-cross-account-role-trust-audit.html">Cross-Account Trust</a></li>
+                        <li><a href="../product/aws-external-boundary-scope-audit.html">External Boundary</a></li>
+                        <li><a href="../product/aws-logging-sufficiency-integrity-audit.html">Logging Sufficiency</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/sample-reports.html">Sample Reports</a></li>
+                        <li><a href="../compare/manual-vs-blackbox-auditor.html">Manual vs Tool</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="security.html">Security</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Blackbox Auditor. All rights reserved.</span>
+                <span class="footer-tagline">Built for auditors and GRC teams.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
